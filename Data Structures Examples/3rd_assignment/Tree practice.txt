@@ -1,0 +1,11 @@
+bool inset_tree(node * & root, int to_add)
+{
+	//base case
+	if(!root)
+		{
+		root = new node;
+		root->data = to_add;
+		root->left = root->right = NULL;
+		}
+		else if(root->data <)
+}

@@ -1,0 +1,38 @@
+Efficiency Review Write-Up
+Brian Dunn cs163
+Assignment 3
+
+The purpose of this assignment was implementing a hash table using chaining as the collision resolution technique that will assist us as a study guide for CS163. Each item in the table has the following information which should is stored as a class. This data should be stored in an external file called cs163_notes.txt
+1)Keyword 
+2)Short description of what you have learned about that topic 
+3)Chapter number
+4)Page  number(s)(allow  for  a list  of  page  numbers  that  you  think  are  most important)
+5)Flag to indicate if additional study on this material is needed
+The Hash Table ADT class is called 'hash'. The notes class handles all the data. I chose to add up each ascii value for each character of the keyword then mod by the table size to achieve an index. The hash table has functions to add a new entry, remove an entry by keyword, edit an entry's info, search and retrieve by keyword, and write to the text file. The constructor takes the table size as an arguement. The destructor frees all dynamically allocated memory. 
+The notes class has functions to add and retrieve each field, to copy an entry, to remove an entries info, to check if key matches argument, and display all fields.
+
+
+
+*************** Questions *************************
+1) How well did the data structure selected perform for the assigned application?
+		The Hash table efficiently allowed storage and retrieval of notes. It allowed adding of additional notes to already created topics. New topics were added and stored correctly. The biggest advance for me was using a class to store data instead of a struct. It required most of the work but made everything that followed so much easier. I also noticed that we will be using it for program four so I spent extra time adding fucntions that might be required.
+
+2) Would a different data structure work better? If so, which one and why...
+	Given the requirements of the assignment, this data structure performed well and would be efficient with a large data set. If the requirements required any sorting then this structure would not perform well and require several traversals. The loading of data from the textfile into the table could be part of the table class but being able to control that from main was more efficient. The class did handle the writing to the text file as the first step in the destructor.
+
+3) What was efficient about your design and use of the data structure?
+	The efficiency of the hash table depends on the amount of chaining that occurs. I experimented with different hash table sizes:
+	size 2 evenly distributes into two nodes
+	size 4 evenly distributes into 4 nodes
+	size 8 is heavy at even numbers and one
+	size 16 is heavy at low numbers and almost nothing on high end
+	size 32 is bimodal with large empty sections
+	size 31 is evenly distributed with almost no collisions and no grouping.
+	I chose 31 as the best choice. It is a merseinne prime((2^n)-1) which explains its even distribution.
+	I allocated the keyword for chapter table to a static siz of 21 for each chapter in the book. I could then display the entire chain and not have to check for a match because I am guaranteed a match unless the chapter is entered wrong(out of Bounds).
+
+4) What was not efficient?
+	Depending on the size of the data set, requiring a seperate table for chapter keywords might not be any better than traversing. Obviuosly as the data set grows this becomes more obvious but even with all the text in the book,traversing and searching each item wouldnt take long.
+
+5) What would you do differently if you had more time to solve the problem?
+	I would have added more functions. A function to erase a field or replace the data would be nice. The display keyword by chapter should also have the option to show the data associated with the keyword or not.

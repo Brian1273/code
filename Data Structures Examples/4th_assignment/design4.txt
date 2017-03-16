@@ -1,0 +1,16 @@
+Design #4
+Brian Dunn CS 163
+Design and Test Plan
+
+1) What functions your ADT will need to have?
+	For this table I will use a BST to store data in sorted order. My class notes will be reused from program 3 as it has all features required for the assignment and I can focus on the BST.
+	As for the BST the required functions will be:
+		Insert a new keyword with it's information. Remove a keyword with it's information. Edit the Description to add more text as you study. Retrieve the information about a particular keyword. Display all keywords within a given range. Display all keywords in sorted order.
+	I will also need a function to count the height of the tree to determine if I have a reasonable tree.
+	A function that finds the in order successor and returns it.
+2) How each function will report success/failure back to the calling routine?
+	Each function will use its return value as it's way of reporting success to calling routine. If information also needs to be returned then that will be accomplished through the arguement list.
+3) How each function will shield the client program from the details of the data structure?
+	The client program will only see the information supplied to and retrieved from the data structure. Access to the information will be through the use of keywords and copying information to supplied arguements. The client program will not have access to nodes or hash table entries; the client program will not need to directly access the data structure but only supply an empty bucket. The edit function will only append to existing information so access to its location is not necessary 
+4) What data structures you will be using and how each of the special cases.
+	For this ADT I will be using a BST. For the nodes, they will have notes member, as well as a left pointer and a right pointer. Because this program has to be done recursively, I will need wrapper functions to access the private members. Insert will traverse until it hits an empty node. Retrieve and Edit will search for a match and return a copy or edit repectively. Display all will need to traverse in order. Display by keyword will need to traverse to the first keyword letter, display while keyword is in range then stop when no longer in range. Remove has the most special cases. If removing a leaf or the first node then nothing special, just remove, set the parent to null. If a parent with one child then deleted nodes parent adopts the child. If two children then I will need to find the in order successor and replace the deleted node with the IOS then delete the node that held the IOS.

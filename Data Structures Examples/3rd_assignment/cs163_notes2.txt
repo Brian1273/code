@@ -1,0 +1,35 @@
+ADT
+Abstract Data Types
+1
+11-16
+false
+New Topic
+This is a new note
+21
+1-100
+false
+Data Abstraction
+Object Oriented concepts
+1
+2-4
+false
+Linked lists
+This is a linked list.......
+11
+1-100
+false
+ADT bag
+Specifying Data and Operations
+1
+17-30
+false
+Algorithm Efficiency
+Measuring the efficiency of algorithms
+10
+289-304
+false
+circular linked lists
+this is a circulat linked list
+16
+101-200
+false

@@ -1,0 +1,21 @@
+Efficiency Review Write-Up
+Brian Dunn cs163
+Assignment 2
+
+The purpose of this program is to simulate the packing of PODS for easy delivery. 
+Each package had information for a Sender name/contact info, a Destination, and a size field. 
+There were two data structures used for this assignment. The List of deliveries is a Circular Linked List used a queue. The class called queue has function for Enqueue, Dequeue, Peek, and Display. Enqueue and Peek pass information back and forth to the list through the use of packages as arguments. Dequeue returns a 1 if a package is removed or a 0 if not. Display displays the packages to be delivered in the order they were entered.
+The Stack function called manifest:: is a linear linked list of package arrays. The class has functions for Push, Pop, Peek, and Display. Push and Peek pass information back and forth to the stack through the use of a package as an argument returning 1 if successful, 0 if not. Pop returns 1 if the last package added is removed, 0 if not. Display displays the entire stack in Last In/First Out order.
+*************** Questions *************************
+1) How well did the data structure selected perform for the assigned application?
+		The data structure selected performed all of the required tasks for the assigned application. The queue works well for the deliveries; keeping track of the order in which they are needed.
+		The stack is an appropriate way handling items in this situation where the last item in is going to be the first item out. The program handles all cases well and in the desired way. 
+2) Would a different data structure work better? If so, which one and why...
+		Since the delivery list size and number of packages is known prior to the stack creation, a single array of packages of the required size would be more appropriate. The circular linked list lends itself well to FIFO data handling but in this particular application it does not allow a delivery to be added in the middle without destroying the list. A relative ordered list would allow adding anywhere.
+		Since the delivery information is entered in order this allowed the Enqueue and push to happen at the same time. You wouldn't have an item for delivery and not load it. This allows a package to be added to the end of a delivery list to be added to the stack at any time. The destructors for both classes delete all dynamically allocated memory so no memory leaks are possible. 
+
+4) What was not efficient?
+		The choice to make the package a struct was simpler but I feel making it a class object with functions to display, retrieve, and add info to the package would have simplified the coding process. As far as runtime efficiency I don’t think the object being a class or a struct would make too much difference given the size of data set we would be working with. The delivery list should be loaded from a file.
+
+5) What would you do differently if you had more time to solve the problem?
+		Given more time, I would have chosen to make the package a class with functions to add, retrieve, and display. The implementation program for the user would need to be separate sections for each part of the list. People loading the truck shouldn't change the list of deliveries and vice versa. As I stated before, in practice, the number of deliveries and the order in which they will be delivered would need to be known prior to loading of the truck, this could be statically allocated array since shifting and size are not a consideration. This would also allow direct access to anywhere in the list. 

@@ -1,0 +1,22 @@
+Efficiency Review Write-Up
+Brian Dunn cs163
+Assignment 5
+
+The purpose of this assignment was to implement an adjacency list of vertex objects. I chose to implement system to organize my .mp3 files into songs of similar tunings. As a guitar player, it is difficult to remember which songs are in which tunings. Though most songs are in standard tuning, quite a few use a dropped, or open tuning. Being able to play a set of songs in the same tuning would minimize having to retune to the guitar.
+The program takes in as input the filenames of the .mp3's. The user could then connect the songs that are in the same tuning
+
+*************** Questions *************************
+1) How well did the data structure selected perform for the assigned application?
+	This data structure performed all functions required. Insert adds the vertex to the graph. Edges are inserted to the adjacency list. Displaying can be done either the whole list or by related vertex's. Since there was only one data item to store, I felt a class was not necessary nor efficient.
+
+2) Would a different data structure work better? If so, which one and why...
+	Given the minimal requirements of this assignment, I felt that this data structure is more than sufficient for the requirements. Upon researching, I found that .mp3 files contain an ID3 container that could store this information so that it could be read and written to which would eliminate having to look up the tunings when entering them into the graph. Accessing and editing this information is beyond the scope of this assignment but will be added to v2.0.
+	
+
+3) What was efficient about your design and use of the data structure?
+	Given the small data set I will be working with(about 20 songs at a time), This data structure efficiently stored and connected the songs. Several applications allow for the sorting and filtering of mp3 files. None of them, however, allow you to sort by tuning or key. 
+
+4) What was not efficient?
+	The most inefficient part of this program is manually entering the information. Mp3 audio files have an ID3 container which stores information such as Artist, Genre, track number ETC... If this could automatically be parsed from the header without manually having to enter the info would vastly improve efficiency.
+5) What would you do differently if you had more time to solve the problem?
+	If given more time to work with this, I would implement reading the required informatin from the ID3 tag. Another option, if ID3 was not available, would to be to add more lists to each vertex. An adjacency list that connected the same artists, or any other of several classifications to music. Adding an option to actually play the mp3 file would be nice as well.

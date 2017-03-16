@@ -1,0 +1,30 @@
+ADT
+Abstract Data Types
+1
+11-16
+false
+Data Abstraction
+Object Oriented concepts
+1
+2-4
+false
+Linked lists
+This is a linked list.......
+1
+1-100
+false
+ADT bag
+Specifying Data and Operations
+1
+17-30
+false
+2-3 tree
+TWO THREE trees
+13
+130-150
+false
+circular linked lists
+this is a circulat linked listThese notes were added later
+2
+101-200
+false

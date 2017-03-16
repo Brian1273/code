@@ -1,0 +1,29 @@
+Efficiency Review Write-Up
+Brian Dunn cs163
+Assignment 4
+
+The  purpose of this assignment was implementing a Binary Search Tree that will assist us as a study guide for CS163. Each item in the table has the following information which is stored as a class. This data should be stored in an external file called cs163_notes.txt
+1)Keyword 
+2)Short description of what you have learned about that topic 
+3)Chapter number
+4)Page  number(s)(allow  for  a list  of  page  numbers  that  you  think  are  most important)
+5)Flag to indicate if additional study on this material is needed
+The bst ADT class is called 'bst::'. The notes class handles all the data. The bst inserts and places data based on the keyword. Data that is less than the node goes left and the data which is larger goes to the right. The bst has functions to add a new entry, remove an entry by keyword, edit an entry's info, search and retrieve by keyword, and to display all or display by range. The destructor frees all dynamically allocated memory. 
+The notes class has functions to add and retrieve each field, to copy an entry, to remove an entries info, to check if key matches argument, and display all fields.
+
+	
+*************** Questions *************************
+1) How well did the data structure selected perform for the assigned application?
+	The bst performed all required functions without error. The tree allowed quick insertion and retrieval. It allowed adding of additional notes to already created topics. New topics were added and stored correctly. The biggest advance for me was using a class to store data instead of a struct. It required most of the work but made everything that followed so much easier.
+	
+2) Would a different data structure work better? If so, which one and why...
+	Given the requirements of the assignment, this data structure performed well and would be efficient with a large data set. THe efficiency of the tree is largely determined by the order in which data items are inserted. Depending on that order, another data structure might be more efficient especially if data comes in in sorted order.
+	
+3) What was efficient about your design and use of the data structure?
+	I experimented with insertion order and efficiency. Using the text file of notes from assignment 3, I got a height 14 with 38 nodes of data. THe right subtree had 29 and left had 8. By just changing the first inserted item, the height was reduced to 12 and had 20 right children and 17 left. Moving a few more items insertion order, I mangaed to get the height down to 10. If I store the data in sorted order, I get a linear linked list of length 38. With 38 items, the most efficient height possible is 6(2^5 < N <2^6). At a height of 10, The tree is far from the most efficient design possible.
+
+4) What was not efficient?
+		Trying to store data back to the textfile resulted in sorted list. If this list was then loaded, the result was a linear list. Without prior sorting of text file, the tree end up with excessive height. As more data is entered, the efficiency should improve.
+
+5) What would you do differently if you had more time to solve the problem?
+	If more time was to be had, I would add a function to store the data to a textfile in non-sorted order. Given the requirements of the assignment, this data structure performed well and would be efficient with a large data set. 

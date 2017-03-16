@@ -1,0 +1,24 @@
+Efficiency Review Write-Up
+Brian Dunn cs163
+Assignment 1
+
+My data structure was an array of lists. Each list had an admin node with the trip details. The admin node pointed to a port node that contained the airport and flight details. The list of airports had it's own class with Functions to build and display. It also checked delays and flight times to verify if a flight could be added. 
+The trip class built and entered travel information. IT has functions to add Admin info, add Flight info, check layover times and check the origin of a flight.
+The handling of the lists was done by the planner class. The planner had functions to pass details to the trip builder including number of flights to synamically allocate a list for that segment.
+
+************ Questions ***************
+1) How well did the data structure selected perform for the assigned application?
+	The data structure performed all the required tasks but I feel that I could have had a more efficient way of handling the lists. I realised when I was writing the interface for the data structure that I could have made it more efficient. The data structure performs all required functions as specified. I had to control access to functions through the interface to prevent any unwanted actions such as writing a port without having an admin node.
+	
+2) Would a different data structure work better? If so, which one and why...
+	If I had more time I would have changed the structure. The data had a head structure of an array of list objects. It would have been far more efficient to use an array of head pointers. In my design, the list and array of lists are seperate classes and data accessibilty became a huge problem. As said before, it wasn't until I started writing the implementation file that this became apparent.
+	
+3) What was efficient about your design and use of the data structure?
+	My design allowed easy building and display of lists. The airport list happens without any problems or quirks. The data is secure as well as accesible. 
+	
+4) What was notefficient?
+	The use of seperate classes for different parts of the list were not efficient. The client could have just as easily declared the array of lists themselves. I would have liked to not have to declare the array size but rather had the number of segments be dynamic and allow changing of details or removal of flights. Having to hide functions while the list is being built was not efficient. I had to use multiple switches to keep the structure until it was finished being built.
+
+5) What would you do differently if you had more time to solve the problem?
+	If given more time I would have changed the structure of my data to be an array of pointers to head pointers. I would have added functions to change or delete a segment or flight. I spent alot of time trying to make a bad design work. The ability to access all the data from within one class, other than the airport list. I would have also added a flight number data field and then be able to search by flight number.
+	In general I feel that this data structure is too much overhead for the amount of actual data that is being stored. A two dimensional array could accomplish the same features without all the overhead. Realistically there would not be more than 10 segments at most with 4 or 5 ports at most per segment.

@@ -1,0 +1,71 @@
+Design #2
+Brian Dunn CS 163
+Design and Test Plan
+
+1) What functions your ADT will need to have	
+a. Stack ADT
+i. Push
+1. Add a package to Pod
+ii. Pop
+1. Remove a package from the Pod
+iii. Peek
+1. Retrieve info about package at top of list without removing from the list
+iv. Display
+1. Displays the contents of the POD.
+b. Queue ADT
+i. Enqueue
+1. Enqueue will add package to the list
+ii. Dequeue
+1. Dequeue will remove a package from the list
+iii. Peek
+1. Peek will get the top package’s information without removing the package.
+iv. Display
+1. Display will print the package info from the list.
+2) How each function will report success/failure back to the calling routine
+a. Stack ADT
+i. Push 
+1. Will return a 1 if package added. 
+2. Returns 0 if package not added.
+ii. Pop
+1. Will return 1 if package removed
+2. Returns 0 if package not removed
+iii. Peek
+1. Will return 1 if “bucket” is filled
+2. Returns 0 if bucket not filled. (The stack is empty).
+iv. Display
+1. Display is void return type. If nothing displays then there is an error or list is empty
+b. Queue ADT
+i. Enqueue
+1. Will return a 1 if package added. 
+2. Returns 0 if package not added.
+ii. Dequeue
+1. Will return 1 if package removed
+2. Returns 0 if package not removed
+iii. Peek
+1. Will return 1 if “bucket” is filled
+2. Returns 0 if bucket not filled(stack empty).
+iv. Display
+1. Display is void return type. If nothing displays then there is an error or list is empty
+3) How each function will shield the client program from the details of the data structure?
+a. Each function will shield the client program from the details if the data structure by making the lists(pointers) private data members. Any data contained within the structure will be returned through the argument provided by the calling routine. This prevents the client program from directly accessing the data structure and preventing any changes to the data or the structure. Display functions will directly output therefore there is no need for the client program to access any of the data.
+4) What data structures you will be using and how each of the special cases.
+a. The Stack ADT will use a LLL of arrays. The arrays will be dynamically allocated. Each element of the array will be a package. The constructor will create the array with the size given to the constructor’s argument. Since the packages are in an array, each element will be accessed by pointer arithmetic. The special cases are when:
+i. The stack is empty(Push, PoP, peek)
+1. Push creates new array
+2. Pop will return an error code.
+3. Peek will return an error
+4. Updates array index
+ii. There is[array size] items(push)
+1. Push creates new array; updates next pointer; resets index pointer.
+iii. There is [array size +1] items
+1. Pop deletes array; deletes node
+2. Next pointer = NULL
+3. Adjust index to [array size]
+b. The Queue ADT will use a CLL of recipients. The queue will contain the delivery list. This will help users figure out where to deliver the next item in the pod. The special cases are:
+i. Rear is NULL
+1. Enqueue will add a new node and set next to equal to rear.
+2. Dequeue will do nothing.
+ii. 1 item in the list
+1. Dequeue
+a. Delete node, set rear to NULL
+

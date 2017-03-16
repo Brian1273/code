@@ -1,0 +1,33 @@
+Design #3
+Brian Dunn CS 163
+Design and Test Plan
+
+1) What functions your ADT will need to have?
+	1)Insert will add a new keyword with its information.
+		The information required is:
+			1)Keyword is one of the keys that will used for searching and placing. The Hash function will use this keyword to create an index into the hash table.
+			2)Short description of what you have learned about that topic. This will be a dynamically allocated array of characters. This array must be able to be appended to as more information is added. 
+			3)Chapter number(s). This is another key that will be used for a hash function to generate an index into thte table.
+			4)Page  number(s)(allow  for  a list  of  page  numbers  that  you  think  are  most important). For this I will use another dynamically allocated character array.
+			5)Flag to indicate if additional study on this material is needed. This will simply be a bool.
+	2)Remove a keyword with its information.
+		This will search for the keyword and if found, remove the entry with given keyword and return a success code.
+	3)Edit the description to add more text as you study, given the keyword. 
+		This will append to the description character array if the keyword matches. If it is not found or can't be removed then it will return a failure code. 
+	4)Retrieve the informationabout a particular keyword (only 1 match expected)(Remember,  retrieve  is  NOT  a  display functionand  should  supply  the matching information back to the calling routine through the argument list). 
+		If the keyword is found, return will fill the "bucket" notes to the calling routine along with a success code. It is up to the calling routine to decide if and how to display the information returned.  
+	5)Display for a given chapter, all keywords.
+		THis will simply find the chapter and display all keywords associated with the chapter. Since all chapters will be accounted for and if the chapeter is empty then nothing will display. If the client wants to see the information for the returned keywords then they need to retrieve the information through the retrieve function.
+	6)Display all keywords.
+		This will display all keywords for all chapters. A void return type is appropriate in this situation.
+	
+2) How each function will report success/failure back to the calling routine?
+	Each function will use its return value as it's way of reporting success to calling routine. If information also needs to be returned then that will be accomplished through the arguement list.
+
+3) How each function will shield the client program from the details of the data structure?
+	The client program will only see the information supplied to and retrieved from the data structure. Access to the information will be through the use of keywords and copying information to supplied arguements. The client program will not have access to nodes or hash table entries; the client program will not need to directly access the data structure but only supply an empty bucket. The edit function will only append to existing information so access to its location is not necessary 
+4) What data structures you will be using and how each of the special cases.
+	The hash table ADT will be an array of head pointers. The table will be of variable size as per requirements, this is detect how table size effects collisions. The special case is when the index is empty and a new node will be added. Otherwise if a collision occurs the new node will be (chained) added at head and the next pointer updated.
+	For the list of keywords associated with a given chapter, an array of linked lists for each chapter will give direct data access by using the chapter as the key into the index and a linked list of keywords is directly accessed without traversal. The display all keywords function will simply display each chapter's keywords in order.
+	Since the data will be stored in text file, the destructor will need to write to the file before deleting the information.
+	
